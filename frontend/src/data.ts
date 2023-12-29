@@ -57,24 +57,24 @@ export const menu = [
         url: "/boughtrecords",
         icon: "log.svg",
       },
-      // {
-      //   id: 3,
-      //   title: "Elements",
-      //   url: "/",
-      //   icon: "element.svg",
-      // },
-      // {
-      //   id: 4,
-      //   title: "Notes",
-      //   url: "/",
-      //   icon: "note.svg",
-      // },
-      // {
-      //   id: 5,
-      //   title: "Forms",
-      //   url: "/",
-      //   icon: "form.svg",
-      // },
+      {
+        id: 3,
+        title: "Elements",
+        url: "/",
+        icon: "element.svg",
+      },
+      {
+        id: 4,
+        title: "Notes",
+        url: "/",
+        icon: "note.svg",
+      },
+      {
+        id: 5,
+        title: "Forms",
+        url: "/",
+        icon: "form.svg",
+      },
     ],
   },
 ];
