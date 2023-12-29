@@ -1,0 +1,23 @@
+.navbar {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+    gap: 10px;
+
+    img {
+      width: 62px;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: large;
+    }
+  }
+}
