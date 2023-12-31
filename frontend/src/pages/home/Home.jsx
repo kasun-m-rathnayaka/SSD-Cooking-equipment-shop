@@ -1,6 +1,5 @@
 import React from "react";
 import "./home.scss";
-import LowItemBox from "../../Components/low item box/LowItemBox";
 
 const Home = () => {
   return (
