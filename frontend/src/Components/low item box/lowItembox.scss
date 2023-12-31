@@ -1,2 +1,35 @@
 .lowitembox {
+  .topbox {
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .listItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      .user {
+        display: flex;
+        gap: 20px;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        .userText {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          font-weight: 500;
+        }
+        .userEmail {
+        }
+      }
+      .ammount {
+        font-weight: 500;
+      }
+    }
+  }
 }

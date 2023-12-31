@@ -4,8 +4,8 @@ import "./footer.scss";
 const Footer = () => {
   return (
     <div className="footer">
-      <span>SSD Aluminium Cooking eqipments</span>
-      <span>Copywrite @ H.M.K.M.Rathnayaka</span>
+      <span>SSD Cooking Equipment (PVT) Ltd</span>
+      <span>Copyright © 2023 H.M.K.M.Rathnayaka. All rights reserved</span>
     </div>
   );
 };

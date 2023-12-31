@@ -6,7 +6,7 @@ const NavBar = () => {
     <div className="navbar">
       <div className="logo">
         <img src="logo.png" />
-        <div className="title">SSD Aluminium works</div>
+        <div className="title">SSD Cooking Equipment (PVT) Ltd</div>
       </div>
     </div>
   );
