@@ -10,7 +10,7 @@ const BoughtRecords = () => {
   }, []);
 
   async function getProducts() {
-    const url = "http://localhost:3000/api/buyproduct/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/buyproduct/";
     const response = await fetch(url);
     return await response.json();
   }

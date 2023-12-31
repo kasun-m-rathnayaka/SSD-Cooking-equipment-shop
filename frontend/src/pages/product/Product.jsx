@@ -13,7 +13,7 @@ const Product = () => {
   }, []);
 
   async function getProducts() {
-    const url = "http://localhost:3000/api/product/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
     const response = await fetch(url);
     return await response.json();
   }
@@ -40,9 +40,12 @@ const Product = () => {
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete product") == true) {
       console.log(id + "deleted");
-      await fetch("http://localhost:3000/api/product/" + id, {
-        method: "DELETE",
-      });
+      await fetch(
+        "https://ssd-cooking-equipments.onrender.com/api/product" + id,
+        {
+          method: "DELETE",
+        }
+      );
     }
   };
 

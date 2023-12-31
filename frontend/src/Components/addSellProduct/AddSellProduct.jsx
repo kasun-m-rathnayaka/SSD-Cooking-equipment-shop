@@ -25,7 +25,7 @@ const AddSellProduct = (props) => {
     e.preventDefault();
     let id = lastId + 1;
 
-    const url = "http://localhost:3000/api/sellproduct/";
+    const url = "https://ssd-cooking-equipments.onrender.com/sellproduct/";
     fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -47,7 +47,7 @@ const AddSellProduct = (props) => {
   };
 
   const updateProduct = async () => {
-    const url = "http://localhost:3000/api/product/" + id;
+    const url = "https://ssd-cooking-equipments.onrender.com/api/product/" + id;
     let stocklevel = stockLevel - qty;
     await fetch(url, {
       method: "PATCH",

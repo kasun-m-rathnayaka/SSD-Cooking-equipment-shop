@@ -14,7 +14,8 @@ const SingleProduct = (props) => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:3000/api/product/" + state._id;
+    const url =
+      "https://ssd-cooking-equipments.onrender.com/api/product/" + state._id;
     await fetch(url, {
       method: "PATCH",
       headers: {

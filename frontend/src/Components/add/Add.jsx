@@ -20,7 +20,7 @@ const Add = (props) => {
 
     let id = lastId[0] + 1;
 
-    const url = "http://localhost:3000/api/product/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
     await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./buyProduct.scss";
 import ProductDataTable from "../../Components/productDataTable/ProductDataTable";
-import AddBuyProdut from "../../Components/addBuyProduct/addBuyProdut";
+import AddBuyProdut from "../../Components/addBuyProduct/AddBuyProdut";
 
 const BuyProduct = () => {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ const BuyProduct = () => {
   }, []);
 
   async function getProducts() {
-    const url = "http://localhost:3000/api/product/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
     const response = await fetch(url);
     return await response.json();
   }

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./sellProduct.scss";
-import Add from "../../Components/add/Add";
-import { Link } from "react-router-dom";
 import ProductDataTable from "../../Components/productDataTable/ProductDataTable";
 import AddSellProduct from "../../Components/addSellProduct/AddSellProduct";
 
