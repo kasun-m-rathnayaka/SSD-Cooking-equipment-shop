@@ -21,7 +21,7 @@ const Add = (props) => {
     let id = lastId[0] + 1;
 
     const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
-    await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -36,7 +36,7 @@ const Add = (props) => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => alert("Product Insertion Successful "))
+      .then((data) => alert("Product Insertion Successful"))
       .catch((error) => console.error(error));
   };
 
