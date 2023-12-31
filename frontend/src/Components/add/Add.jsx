@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Add.scss";
+import "./add.scss";
 
 const Add = (props) => {
   const [lastId, setLastId] = useState();

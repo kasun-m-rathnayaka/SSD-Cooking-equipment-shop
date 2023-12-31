@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AddSellProduct.scss";
+import "./addSellProduct.scss";
 
 const AddSellProduct = (props) => {
   const [lastId, setLastId] = useState();
