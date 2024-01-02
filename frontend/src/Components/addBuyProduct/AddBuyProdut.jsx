@@ -40,7 +40,7 @@ const AddBuyProdut = (props) => {
     }).then((response) => {
       response.json().then((json) => {
         console.log("result ", json);
-        alert("Product Added");
+        alert("Transaction completed");
         updateProduct();
       });
     });
@@ -48,7 +48,7 @@ const AddBuyProdut = (props) => {
 
   const updateProduct = async () => {
     const url = "https://ssd-cooking-equipments.onrender.com/api/product/" + id;
-    let stocklevel = stockLevel + qty;
+    let stocklevel = Number(stockLevel) + Number(qty);
     await fetch(url, {
       method: "PATCH",
       headers: {

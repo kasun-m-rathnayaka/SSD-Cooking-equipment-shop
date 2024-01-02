@@ -30,7 +30,7 @@ const SingleProduct = (props) => {
         minstocklevel,
         image,
       }),
-    });
+    }).then(alert("Product Updated"));
   };
 
   return (

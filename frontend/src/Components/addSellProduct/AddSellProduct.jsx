@@ -25,7 +25,7 @@ const AddSellProduct = (props) => {
     e.preventDefault();
     let id = lastId + 1;
 
-    const url = "https://ssd-cooking-equipments.onrender.com/sellproduct/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/sellproduct/";
     fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -64,7 +64,7 @@ const AddSellProduct = (props) => {
         <span className="close" onClick={() => props.setOpen(false)}>
           X
         </span>
-        <h1>Buy New Product</h1>
+        <h1>Sell New Product</h1>
         <form onSubmit={handleSubmit}>
           <div className="item">
             <label>Title</label>
