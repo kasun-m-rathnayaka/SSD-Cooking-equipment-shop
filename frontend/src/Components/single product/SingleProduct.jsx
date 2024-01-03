@@ -30,7 +30,13 @@ const SingleProduct = (props) => {
         minstocklevel,
         image,
       }),
-    }).then(alert("Product Updated"));
+    }).then((response) => {
+      response.json().then((json) => {
+        console.log("result ", json);
+        alert("Update completed");
+        updateProduct();
+      });
+    });
   };
 
   return (

@@ -41,7 +41,7 @@ const Product = () => {
     if (confirm("Are you sure you want to delete product") == true) {
       console.log(id + "deleted");
       await fetch(
-        "https://ssd-cooking-equipments.onrender.com/api/product" + id,
+        "https://ssd-cooking-equipments.onrender.com/api/product/" + id,
         {
           method: "DELETE",
         }

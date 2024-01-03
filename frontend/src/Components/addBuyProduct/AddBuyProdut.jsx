@@ -12,7 +12,7 @@ const AddBuyProdut = (props) => {
   const [qty, setQty] = useState();
 
   useEffect(() => {
-    setLastId(props.product.id);
+    setLastId(Math.floor(Math.random() * 1000000000000000));
     setId(props.product._id);
     setTitle(props.product.title);
     setCategory(props.product.category);
@@ -23,7 +23,7 @@ const AddBuyProdut = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id = lastId + 1;
+    let id = lastId;
 
     const url = "https://ssd-cooking-equipments.onrender.com/api/buyproduct/";
     fetch(url, {

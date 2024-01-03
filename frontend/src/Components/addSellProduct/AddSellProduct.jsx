@@ -12,7 +12,7 @@ const AddSellProduct = (props) => {
   const [qty, setQty] = useState();
 
   useEffect(() => {
-    setLastId(props.product.id);
+    setLastId(Math.floor(Math.random() * 1000000000000000));
     setId(props.product._id);
     setTitle(props.product.title);
     setCategory(props.product.category);
@@ -23,8 +23,7 @@ const AddSellProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id = lastId + 1;
-
+    let id = lastId;
     const url = "https://ssd-cooking-equipments.onrender.com/api/sellproduct/";
     fetch(url, {
       method: "POST",
@@ -40,7 +39,7 @@ const AddSellProduct = (props) => {
     }).then((response) => {
       response.json().then((json) => {
         console.log("result ", json);
-        alert("Product Added");
+        alert("Transaction completed");
         updateProduct();
       });
     });
@@ -48,7 +47,7 @@ const AddSellProduct = (props) => {
 
   const updateProduct = async () => {
     const url = "https://ssd-cooking-equipments.onrender.com/api/product/" + id;
-    let stocklevel = stockLevel - qty;
+    let stocklevel = Number(stockLevel) - Number(qty);
     await fetch(url, {
       method: "PATCH",
       headers: {
@@ -82,7 +81,7 @@ const AddSellProduct = (props) => {
               onChange={(e) => setQty(e.target.value)}
             ></input>
           </div>
-          <button>Buy</button>
+          <button>Sell</button>
         </form>
       </div>
     </div>
