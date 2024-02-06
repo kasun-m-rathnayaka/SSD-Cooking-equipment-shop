@@ -12,8 +12,19 @@ import User from "./pages/user/User";
 import SalesRecords from "./pages/sales records/SalesRecords";
 import BoughtRecords from "./pages/bought records/BoughtRecords";
 import SingleProduct from "./Components/single product/SingleProduct";
+import LowStockItems from "./pages/lowStockItems/LowStockItems";
+import DailyChart from "./pages/dailyChartPage/DailyChart";
+import MonthlyInfo from "./pages/monthlyInfo/MonthlyInfo";
 
 function App() {
+  async function getProducts() {
+    const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
+    const response = await fetch(url);
+    return await response.json();
+  }
+
+  setInterval(getProducts, 840000);
+
   const Layout = () => {
     return (
       <div className="main">
@@ -67,6 +78,18 @@ function App() {
         {
           path: "/boughtrecords",
           element: <BoughtRecords />,
+        },
+        {
+          path: "/lowstock",
+          element: <LowStockItems />,
+        },
+        {
+          path: "/dailyChart",
+          element: <DailyChart />,
+        },
+        {
+          path: "/monthlyinfo",
+          element: <MonthlyInfo />,
         },
       ],
     },

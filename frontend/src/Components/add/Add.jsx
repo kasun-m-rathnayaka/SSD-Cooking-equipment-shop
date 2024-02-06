@@ -18,26 +18,40 @@ const Add = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let id = lastId[0] + 1;
+    let profit = Number(sellingprice) - Number(cost);
+    console.log(profit);
 
-    const url = "https://ssd-cooking-equipments.onrender.com/api/product/";
+    let id = lastId[0] + 1;
+    if (id == undefined || id == null) {
+      let id = 1;
+    }
+
+    const product = {
+      id,
+      title,
+      category,
+      cost,
+      sellingprice,
+      stocklevel,
+      minstocklevel,
+      image,
+      profit,
+    };
+    const url = "http://localhost:3000/api/product";
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        id,
-        title,
-        category,
-        cost,
-        sellingprice,
-        stocklevel,
-        minstocklevel,
-        image,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => alert("Product Insertion Successful"))
-      .catch((error) => console.error(error));
+      body: JSON.stringify(product),
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      console.log(json.error);
+    }
+    if (response.ok) {
+      alert("Product added");
+      props.setOpen(false);
+    }
   };
 
   return (

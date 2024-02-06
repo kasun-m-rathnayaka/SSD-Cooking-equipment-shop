@@ -21,12 +21,20 @@ const AddBuyProdut = (props) => {
     setStockLevel(props.product.stocklevel);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let id = lastId;
 
-    const url = "https://ssd-cooking-equipments.onrender.com/api/buyproduct/";
-    fetch(url, {
+    if (qty <= 0) {
+      alert("Please enter valid quanity");
+      props.setOpen(false);
+      return;
+    }
+
+    let date = Date();
+    console.log(date);
+    const url = "http://localhost:3000/api/buyproduct/";
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -36,14 +44,21 @@ const AddBuyProdut = (props) => {
         cost,
         sellingprice,
         qty,
+        date,
       }),
-    }).then((response) => {
-      response.json().then((json) => {
-        console.log("result ", json);
-        alert("Transaction completed");
-        updateProduct();
-      });
     });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+      alert(Error);
+    }
+    if (response.ok) {
+      alert("Transaction completed");
+      updateProduct();
+      props.setOpen(false);
+    }
   };
 
   const updateProduct = async () => {

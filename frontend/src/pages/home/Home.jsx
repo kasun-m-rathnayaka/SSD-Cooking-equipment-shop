@@ -1,16 +1,29 @@
 import React from "react";
 import "./home.scss";
+import LowStock from "../../Components/lowStock/LowStock";
+import BarChart from "../../Components/barChart/RevBarChart";
+import DailyProfit from "../../Components/dailyProfit/DailyProfit";
+import DailyCost from "../../Components/dailyCost/DailyCost";
+import AreaCharts from "../../Components/areaChart/AreaChart";
 
 const Home = () => {
   return (
     <div className="home">
-      Home page
-      {/* <div className="box1">box</div>
-      <div className="box2">box</div>
-      <div className="box3">box</div>
-      <div className="box4">box</div>
-      <div className="box5">box</div>
-      <div className="box6">box</div> */}
+      <div className="box box1">
+        <LowStock />
+      </div>
+      <div className="box box2">
+        <DailyProfit />
+      </div>
+      <div className="box box3">
+        <DailyCost />
+      </div>
+      <div className="box box5">
+        <AreaCharts />
+      </div>
+      <div className="box box7">
+        <BarChart />
+      </div>
     </div>
   );
 };

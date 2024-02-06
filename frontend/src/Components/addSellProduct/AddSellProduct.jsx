@@ -10,22 +10,51 @@ const AddSellProduct = (props) => {
   const [sellingprice, setSellingPrice] = useState();
   const [stockLevel, setStockLevel] = useState();
   const [qty, setQty] = useState();
+  const [profit, setProfit] = useState();
+  const [kpi, setKpi] = useState();
+
+  let status = true;
+
+  const date = Date().substring(0, 15);
+  console.log(date);
 
   useEffect(() => {
     setLastId(Math.floor(Math.random() * 1000000000000000));
+    getKpi().then(setKpi);
     setId(props.product._id);
     setTitle(props.product.title);
     setCategory(props.product.category);
     setCost(props.product.cost);
     setSellingPrice(props.product.sellingprice);
     setStockLevel(props.product.stocklevel);
+    setProfit(props.product.profit);
   }, []);
 
-  const handleSubmit = (e) => {
+  const getKpi = async () => {
+    const url = "http://localhost:3000/api/kpi/";
+    const response = await fetch(url);
+    return await response.json();
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (stockLevel < qty) {
+      alert("No sufficient items in the stock");
+      props.setOpen(false);
+      return;
+    }
+
+    if (qty <= 0) {
+      alert("Please enter valid quanity");
+      props.setOpen(false);
+      return;
+    }
+
     let id = lastId;
-    const url = "https://ssd-cooking-equipments.onrender.com/api/sellproduct/";
-    fetch(url, {
+    let date = Date();
+    const url = "http://localhost:3000/api/sellproduct/";
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -35,14 +64,23 @@ const AddSellProduct = (props) => {
         cost,
         sellingprice,
         qty,
+        profit,
+        date,
       }),
-    }).then((response) => {
-      response.json().then((json) => {
-        console.log("result ", json);
-        alert("Transaction completed");
-        updateProduct();
-      });
     });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+      alert(Error);
+    }
+    if (response.ok) {
+      alert("Transaction completed");
+      updateProduct();
+      updateKpi();
+      props.setOpen(false);
+    }
   };
 
   const updateProduct = async () => {
@@ -57,6 +95,52 @@ const AddSellProduct = (props) => {
     });
   };
 
+  const updateKpi = async () => {
+    kpi
+      .filter((item) => item.date == date)
+      .map((item) => {
+        let tprofit = item.profit * qty + profit;
+        let revenue = item.revenue * qty + sellingprice;
+        let expences = item.expences * qty + cost;
+        let id = item._id;
+
+        patchKpi(tprofit, revenue, expences, id);
+        status = false;
+      });
+    if (status) {
+      postKpi();
+    }
+  };
+  console.log("status : ", status);
+
+  async function postKpi() {
+    const data = {
+      profit: profit * qty,
+      revenue: sellingprice * qty,
+      expences: cost * qty,
+      date,
+    };
+    console.log(data);
+    const url = "http://localhost:3000/api/kpi/";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    await response.json();
+  }
+
+  async function patchKpi(profit, revenue, expences, id) {
+    console.log(id);
+    const url = "http://localhost:3000/api/kpi/" + id;
+    await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ profit, revenue, expences }),
+    });
+  }
   return (
     <div className="add">
       <div className="model">

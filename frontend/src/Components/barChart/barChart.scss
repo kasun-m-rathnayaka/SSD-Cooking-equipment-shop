@@ -1,0 +1,17 @@
+.chartBox {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+
+  .boxInfo {
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  .chart {
+    height: 400px;
+    width: 1000px;
+  }
+}

@@ -21,7 +21,15 @@ const BoughtRecords = () => {
     { field: "cost", headerName: "Cost", width: 100 },
     { field: "sellingprice", headerName: "Sellig Price", width: 100 },
     { field: "qty", headerName: "Quantity", width: 100 },
-    { field: "createdAt", headerName: "Date Time", width: 200 },
+    {
+      field: "date",
+      headerName: "Date Time",
+      width: 250,
+      dateSetting: {
+        format: "dd/MM/yyyy",
+      },
+      width: 200,
+    },
   ];
 
   return (
