@@ -11,6 +11,7 @@ const productSchema = new schema({
     stocklevel: { type: Number, required: true },
     minstocklevel: { type: Number, required: true },
     image: { type: String, required: false },
+    profit: { type: Number, required: false },
 }, { timestamps: true })
 
 module.exports = mongoose.model('product', productSchema)

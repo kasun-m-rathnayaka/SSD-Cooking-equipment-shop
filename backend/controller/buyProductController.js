@@ -23,10 +23,10 @@ const getBuySingle = async (req, res) => {
 }
 
 const postBuyProduct = async (req, res) => {
-    const { id, title, category, cost, sellingprice, qty } = req.body
+    const { id, title, category, cost, sellingprice, qty, date } = req.body
 
     try {
-        const response = await productModel.create({ id, title, category, cost, sellingprice, qty })
+        const response = await productModel.create({ id, title, category, cost, sellingprice, qty, date })
         res.status(200).json(response)
     } catch (error) {
         res.status(400).json({ error: error })

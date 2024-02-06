@@ -9,6 +9,8 @@ const productSchema = new schema({
     cost: { type: Number, required: false },
     sellingprice: { type: Number, required: false },
     qty: { type: Number, required: false },
+    profit: { type: Number, required: false },
+    date: { type: String, required: false },
 }, { timestamps: true })
 
 module.exports = mongoose.model('sellproduct', productSchema)

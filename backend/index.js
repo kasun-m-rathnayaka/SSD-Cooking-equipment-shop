@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const product = require('./routes/product')
 const buyproduct = require('./routes/buyProduct')
 const sellproduct = require('./routes/sellProduct')
+const kpi = require('./routes/kpiRoute')
 const cors = require('cors')
 
 const app = express()
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 app.use('/api/product', product);
 app.use('/api/buyproduct', buyproduct);
 app.use('/api/sellproduct', sellproduct);
+app.use('/api/kpi', kpi);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
