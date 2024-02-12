@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose")
 const productModel = require("../models/kpi")
 
 const getKpi = async (req, res) => {
-    const response = await productModel.find().sort({ createdAt: 1 })
+    const response = await productModel.find().sort({ createdAt: -1 })
     res.status(200).json(response)
 }
 
