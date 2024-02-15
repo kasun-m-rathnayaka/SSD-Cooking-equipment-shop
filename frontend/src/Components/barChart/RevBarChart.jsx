@@ -22,7 +22,7 @@ const RevBarChart = () => {
   let data = [];
 
   async function getKpi() {
-    const url = "http://localhost:3000/api/kpi";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi";
     const response = await fetch(url);
     return await response.json();
   }
@@ -67,7 +67,7 @@ const RevBarChart = () => {
     <div className="chartBox">
       <div className="boxInfo">
         <div className="title">
-          <img src="revenueIcon.svg" />
+          <img src="revenue.png" />
           <span>Monthly Revenue</span>
         </div>
       </div>

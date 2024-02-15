@@ -23,7 +23,7 @@ const Dailyrevenue = () => {
   let res = 0;
 
   async function getKpi() {
-    const url = "http://localhost:3000/api/kpi";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi";
     const response = await fetch(url);
     return await response.json();
   }
@@ -46,8 +46,8 @@ const Dailyrevenue = () => {
     <div className="dailyProfit">
       <div className="boxInfo">
         <span className="title">
-          <img src="userIcon.svg" />
-          Daily Revenue
+          <img src="weekrev.png" />
+          Weekly Revenue
         </span>
         <span className="sum">Rs. {res}</span>
         <span className="link">

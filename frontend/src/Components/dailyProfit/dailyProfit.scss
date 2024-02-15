@@ -12,6 +12,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      font-weight: bold;
+      font-size: large;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
     }
     .sum {
       font-size: xx-large;
@@ -21,6 +28,9 @@
       font-size: small;
       cursor: pointer;
       color: #2980b9;
+    }
+    .link:hover {
+      text-decoration: underline;
     }
   }
 

@@ -21,7 +21,7 @@ const MonthlyInfo = () => {
   let data = [];
 
   async function getKpi() {
-    const url = "http://localhost:3000/api/kpi";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi";
     const response = await fetch(url);
     return await response.json();
   }

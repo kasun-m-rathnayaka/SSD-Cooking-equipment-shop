@@ -33,7 +33,7 @@ const AddBuyProdut = (props) => {
 
     let date = Date();
     console.log(date);
-    const url = "http://localhost:3000/api/buyproduct/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/buyproduct/";
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },

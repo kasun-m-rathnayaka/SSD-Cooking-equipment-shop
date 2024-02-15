@@ -31,7 +31,7 @@ const AddSellProduct = (props) => {
   }, []);
 
   const getKpi = async () => {
-    const url = "http://localhost:3000/api/kpi/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi/";
     const response = await fetch(url);
     return await response.json();
   };
@@ -53,7 +53,7 @@ const AddSellProduct = (props) => {
 
     let id = lastId;
     let date = Date();
-    const url = "http://localhost:3000/api/sellproduct/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/sellproduct/";
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -121,7 +121,7 @@ const AddSellProduct = (props) => {
       date,
     };
     console.log(data);
-    const url = "http://localhost:3000/api/kpi/";
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi/";
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -132,7 +132,7 @@ const AddSellProduct = (props) => {
 
   async function patchKpi(profit, revenue, expences, id) {
     console.log(id);
-    const url = "http://localhost:3000/api/kpi/" + id;
+    const url = "https://ssd-cooking-equipments.onrender.com/api/kpi/" + id;
     await fetch(url, {
       method: "PATCH",
       headers: {
