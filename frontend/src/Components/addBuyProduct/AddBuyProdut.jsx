@@ -12,7 +12,7 @@ const AddBuyProdut = (props) => {
   const [qty, setQty] = useState();
 
   useEffect(() => {
-    setLastId(Math.floor(Math.random() * 1000000000000000));
+    setLastId(Math.floor(Math.random() * 10000000000000000000000));
     setId(props.product._id);
     setTitle(props.product.title);
     setCategory(props.product.category);

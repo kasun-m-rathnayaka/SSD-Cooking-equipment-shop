@@ -9,22 +9,31 @@ const Add = (props) => {
   const [sellingprice, setSellingPrice] = useState();
   const [stocklevel, setStockLevel] = useState();
   const [minstocklevel, setMinStockLevel] = useState();
-  const [image, setImage] = useState();
+  const [imageLink, setImage] = useState();
 
   useEffect(() => {
     setLastId(props.rows.map((item) => item.id));
   }, []);
 
+  const makeImage = (img) => {
+    img = img
+      .replace(
+        "https://drive.google.com/file/d/",
+        "https://drive.google.com/thumbnail?id="
+      )
+      .split("/view");
+    return img[0];
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let image = makeImage(imageLink);
 
     let profit = Number(sellingprice) - Number(cost);
     console.log(profit);
 
-    let id = lastId[0] + 1;
-    if (id == undefined || id == null) {
-      let id = 1;
-    }
+    let id = Math.floor(Math.random() * 10000000000000000000000000);
 
     const product = {
       id,

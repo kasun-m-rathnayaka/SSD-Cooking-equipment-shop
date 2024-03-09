@@ -15,6 +15,7 @@ import SingleProduct from "./Components/single product/SingleProduct";
 import LowStockItems from "./pages/lowStockItems/LowStockItems";
 import DailyChart from "./pages/dailyChartPage/DailyChart";
 import MonthlyInfo from "./pages/monthlyInfo/MonthlyInfo";
+import LoginPage from "./pages/login page/LoginPage";
 
 function App() {
   async function getProducts() {
@@ -49,7 +50,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <LoginPage />,
         },
         {
           path: "/product",
@@ -90,6 +91,10 @@ function App() {
         {
           path: "/monthlyinfo",
           element: <MonthlyInfo />,
+        },
+        {
+          path: "/home",
+          element: <Home />,
         },
       ],
     },

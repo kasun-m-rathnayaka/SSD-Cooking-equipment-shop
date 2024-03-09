@@ -1,0 +1,66 @@
+@import "../../styles/variables.scss";
+.loginPage {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 112vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.767);
+
+  .form {
+    margin-top: -100px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .item {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+
+      img {
+        width: 30px;
+        margin-right: -35px;
+        margin-top: 10px;
+      }
+
+      input {
+        padding: 10px;
+        background-color: transparent;
+        color: white;
+        outline: none;
+        border: 1px solid $soft-color;
+        border-radius: 3px;
+      }
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .error {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      img {
+        width: 30px;
+      }
+      color: red;
+      padding: 20px;
+      border: 1px solid red;
+      border-radius: 5px;
+      background-color: rgb(247, 124, 124);
+    }
+  }
+}
